@@ -1,0 +1,39 @@
+# Creating a basic workflow.
+
+# First thing you have to do in a workflow file is give the workflow a name. We do this by giving the workflow a "name" key.
+# This "name" keyword is reserved and must be named - "name". After the colon :, we specify our workflow's name
+name: 'Robin Bhatts first workflow'
+
+# After providing the workflow's name, we have to define when this workflow should be executed.
+# We do this by adding the "on" reserved key. And after on, you define the event or the events that should trigger this workflow to run.
+on: workflow_dispatch
+
+
+# After defining the "name" and trigger "on", we have add the actual work that should be done as part of this workflow.
+# We do this by defining "jobs" which is an reserved keyword. "jobs" does not that a value immediately, it take series for "key": "value".
+jobs:
+
+# The word first-job is totaly up to us. We can give any name to a job and it also does not that a value immediately, it take series for "key": "value"
+    first-job:
+    
+    # And now for this first-job, we first of all have to define the runner on which the job will execute the different steps.
+    # So the environment in which the different steps should be executed. And this is defined by adding the runs-on key, like this.
+    # This again is a reserved name now and GitHub Actions provides multiple environments
+      runs-on: ubuntu-latest
+
+      # And as a next step, we have to define the steps that should be executed with the steps key.
+      # Again, this is a reserved name and now we move to a new line and indent again, and now we add a list of steps.
+      steps:
+
+      # Now, that first step takes a "name". And you should give your steps names
+        - name: Print Greeting
+       
+        # Thereafter in a new line but still belonging to that same dash, we use the run key to define the command that should be executed in the command line.
+        # Now as mentioned before, when defining steps, you can either execute scripts or commands in the shell or use predefined actions.
+        # Here when using the run key,
+          run: echo "Hello World!"
+          
+        - name: Print Name
+          run: echo "Hello Robin Bhatt"
+        - name: Print GoodBye
+          run: echo "Work Done - GoodBye"
