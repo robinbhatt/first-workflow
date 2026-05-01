@@ -37,3 +37,9 @@ jobs:
           run: echo "Hello Robin Bhatt"
         - name: Print GoodBye
           run: echo "Work Done - GoodBye"
+        - name: Multi-Line Commands
+          run: | 
+              echo "Output from first line"
+              echo "Output from second line"
+              echo "Output from third and last line"
+
